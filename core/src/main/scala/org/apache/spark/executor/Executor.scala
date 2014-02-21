@@ -141,6 +141,7 @@ private[spark] class Executor(
     val tr = runningTasks.get(taskId)
     if (tr != null) {
       tr.kill()
+      threadPool.shutdownNow()
     }
   }
 
